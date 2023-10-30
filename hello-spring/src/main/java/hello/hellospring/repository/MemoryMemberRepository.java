@@ -5,7 +5,7 @@ import hello.hellospring.domain.Member;
 import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
-    private static Map<Long, Member> store = new Hash<>();
+    private static  Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
 
 
@@ -24,12 +24,19 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public Optional<Member> findByName(String name) {
         return store.values().stream()
-                .fliter(member -> member.getName().equals(name))
+                .filter(member->member.getName().equals(name))
                 .findAny();
+
+
     }
 
     @Override
     public List<Member> findAll() {
-        return new ArrayList<store.values()>
+        return new ArrayList<>(store.values());
+    }
+
+    public void clearStore()
+    {
+        store.clear();
     }
 }
