@@ -32,6 +32,11 @@ public class StringConfig {
     public MemberService memberService() {
         return new MemberService(memberRepository);
     }
+//
+//    @Bean
+//    public TimeTraceAOP timeTraceAOP() {
+//        return new TimeTraceAOP();
+//    }
 
 //    @Bean
 //    public MemberRepository memberRepository()
