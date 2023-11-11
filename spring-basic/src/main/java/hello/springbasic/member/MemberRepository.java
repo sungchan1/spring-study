@@ -7,4 +7,3 @@ public interface MemberRepository {
     Member findById(Long memeberId);
 
 }
-
