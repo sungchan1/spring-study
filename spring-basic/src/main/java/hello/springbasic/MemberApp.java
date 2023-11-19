@@ -14,8 +14,13 @@ public class MemberApp {
 //        MemberService memberService = appConfig.memberService(); // memberServiceImpl
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);// 이름 , 아비
+        new Member(1L, "memberA", Grade.VIP);
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
+        new Member(1L, "memberA", Grade.VIP);
+
+     
+        
 
         Member findMember = memberService.findMember(1L);
         System.out.println("member.getName() = " + member.getName());
